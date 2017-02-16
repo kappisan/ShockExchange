@@ -1,0 +1,53 @@
+<style>
+
+	.statement-tile h4 {
+	    font-size: 20px;
+	    padding-top: 12px;
+	}
+
+	.statement-tile {
+	    width: 600px;
+	    height: 50px;
+	    background-color: #000;
+	    text-align: left;
+	}
+
+	.statement-transaction-span {
+	    width: 42px;
+	    margin: 0 40px;
+	    display: inline-block;
+	}
+
+	.transaction-amount, {
+	    width: 50px;
+	    margin: 0 10px;
+	    display: inline-block;
+	}
+
+	.transaction-stock {
+	    width: 220px;
+	    margin: 0 10px;
+	    display: inline-block;
+	}
+
+	.transaction-price {
+		color: #f2c800;
+	}
+
+</style>
+
+<center style="padding-top:90px;">
+
+	<div ng-show="loggedIn">
+		<div class="statement-tile" ng-repeat="statement in statements">
+			<h4 class="sans">
+				<span class="statement-transaction-span">{{ statement.type }}</span> 
+				<span class="transaction-amount">{{ statement.amount }}</span> 
+				<span class="transaction-stock">{{ statement.name }}</span> for &nbsp;
+				<span class="transaction-price">${{ statement.price }}</span>
+			</h4>
+		</div>
+	</div>
+	<div ng-show="!loggedIn" ng-include="'./templates/components/notAllowed.html'"></div>
+
+</center>

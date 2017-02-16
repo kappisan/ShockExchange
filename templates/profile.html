@@ -1,0 +1,183 @@
+<style>
+
+.profile-image {
+	margin-top: 20px;
+	width: 300px;
+}
+
+.user-bio {
+	width: 600px;
+	text-align: justify;
+}
+
+.company-profile {
+	width: 600px;
+	height: 100px;
+}
+
+.company-profile:hover {
+	background-color: black;
+	cursor: pointer;
+}
+
+.company-photo {
+	width: 50px;
+    display: inline-block;
+    position: relative;
+    top: 18px;
+    border-radius: 3px;
+}
+
+.company-name {
+	width: 400px;
+    display: inline-block;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.acheivement {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	border-radius: 3px;
+	padding: 2px;
+}
+
+.acheivement:hover {
+	background-color: #f2c800;
+}
+
+.acheivement div {
+	color: #f2c800;
+}
+
+.acheivement:hover div {
+	color: #000;
+}
+
+.acheivement-icon {
+	width: 120px;
+}
+
+.acheivement-text {
+	font-family: coolvetica;
+}
+
+
+
+
+
+
+
+
+
+
+.connection {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	border-radius: 3px;
+	padding: 2px;
+}
+
+.connection:hover {
+	background-color: #f2c800;
+	cursor: pointer;
+}
+
+.connection div {
+	color: #f2c800;
+}
+
+.connection:hover div {
+	color: #000;
+}
+
+.connection-icon {
+	width: 120px;
+}
+
+.connection-text {
+	font-family: coolvetica;
+}
+
+.add-friend {
+	color: #f2c800;
+}
+
+.add-friend:hover {
+	cursor: pointer;
+}
+
+</style>
+
+<center style="padding-top:90px;">
+
+	<div ng-show="loggedIn">
+		<img ng-src="{{userDetails.image}}" class="profile-image">
+
+		<div ng-if="userDetails.isFriend">
+			<p class="sans">You are friends with {{ userDetails.name }}</p>
+		</div>
+		<div ng-if="!userDetails.isFriend">
+			<p class="sans">Click <span class="add-friend" style="" ng-click="sendFriendRequest(userDetails)">here</span> to add {{ userDetails.name }} to your friends list</p>
+		</div>
+
+		<div class="user-bio sans"><p>{{ userDetails.bio }}</p></div>
+
+
+		<h1 class="cool">Acheivements</h1>
+
+		<div class="acheivement">
+			<img src="./img/skyscraper-icon-building.png" class="acheivement-icon">
+			<div class="acheivement-text">CEO</div>
+		</div>
+
+
+		<div class="acheivement">
+			<img src="./img/skyscraper-icon-bank.png" class="acheivement-icon">
+			<div class="acheivement-text">CFO</div>
+		</div>
+
+		<div class="acheivement">
+			<img src="./img/moneybag.png" class="acheivement-icon">
+			<div class="acheivement-text">Money Bag</div>
+		</div>
+
+
+
+		<h1 class="cool">Companies</h1>
+
+		<div>
+			<div class="company-profile" >
+				<img class="company-photo" ng-src="./img/logo_square.png">
+				<h4 class="sans company-name"><span class="yellow">KA</span> - Kappisan - CEO - $20000000 - 51%</h4>
+			</div>
+
+			<div class="company-profile" >
+				<img class="company-photo" ng-src="./img/busicon.png">
+				<h4 class="sans company-name"><span class="yellow">BBB</span> - Big Belly Burger - Executive - $22000 - 31%</h4>
+			</div>
+
+			<div class="company-profile" >
+				<img class="company-photo" ng-src="./img/busicon.png">
+				<h4 class="sans company-name"><span class="yellow">ACB</span> - Amiris Canabis - Executive - $5400 - 24%</h4>
+			</div>
+		</div>
+
+
+		<h1 class="cool">Connections</h1>
+
+		<div class="connections">
+
+			<div class="connection" ng-repeat="friend in userDetails.connections" ng-click="goToProfilePage(friend.username, friend.name)">
+				<img ng-src="{{ friend.image }}" class="connection-icon">
+				<div class="connection-text">{{ friend.name }}</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div ng-show="!loggedIn" ng-include="'./templates/components/notAllowed.html'"></div>
+
+</center>

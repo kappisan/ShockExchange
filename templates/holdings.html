@@ -1,0 +1,78 @@
+<style>
+
+	.arc text {
+	  font: 16px sans-serif;
+	  text-anchor: middle;
+	}
+
+	.arc path {
+	  stroke: #000;
+	  rendering: auto;
+	}
+
+	.holdings-donut {
+		margin-top: 40px;
+	}
+
+	.market-tr-total {
+		height: 80px;
+	}
+
+</style>
+
+<center style="padding-top:90px;">
+
+	<div ng-show="loggedIn">
+		<table>
+			<tr>
+				<th>Ticker</th>
+				<th>Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Book Cost</th>
+				<th>Book Value</th>
+				<th>Return</th>
+				<th>Transaction</th>
+			</tr>
+			<tr class="sans market-tr"
+				ng-mouseover="mouseOverSegment({name: 'cash', bookValue: user.cash}, 0)"
+				ng-mouseleave="mouseOutSegment()">
+				<td class="td-ticker">$$$</td>
+				<td>Cash</td>
+				<td>{{ twoDecimalPlaces(user.cash) }}</td>
+				<td>$1</td>
+				<td> - </td>
+				<td>${{ twoDecimalPlaces(user.cash) }}</td>
+				<td>$0</td>
+				<td><button class="buy-button" ng-click="goToGetMoreCash()">Get More</button></td>
+			</tr>
+			<tr ng-repeat="holding in holdings" 
+				ng-click="goToStock(holding)" 
+				class="sans market-tr" 
+				ng-mouseover="mouseOverSegment(holding, $index+1)"
+				ng-mouseleave="mouseOutSegment()">
+				<td class="td-ticker">{{ holding.ticker }}</td>
+				<td>{{ holding.name }}</td>
+				<td>{{ holding.quantity }}</td>
+				<td>${{ twoDecimalPlaces(holding.price) }}</td>
+				<td>${{ twoDecimalPlaces(holding.bookCost) }}</td>
+				<td>${{ twoDecimalPlaces(holding.bookValue) }}</td>
+				<td>${{ twoDecimalPlaces(holding.bookValue - holding.bookCost) }}</td>
+				<td ng-click="sellStock(holding)"><button class="buy-button">Sell</button></td>
+			</tr>
+			<tr class="sans market-tr-total">
+				<td class="td-ticker">$$$</td>
+				<td class="yellow cool">Total</td>
+				<td> - </td>
+				<td> - </td>
+				<td>${{ twoDecimalPlaces(totalCost) }}</td>
+				<td>${{ twoDecimalPlaces(user.balance) }}</td>
+				<td>${{ twoDecimalPlaces(totalReturn)}} </td>
+			</tr>
+		</table>
+
+		<div class="holdings-donut"></div>
+	</div>
+	<div ng-show="!loggedIn" ng-include="'./templates/components/notAllowed.html'"></div>
+
+</center>

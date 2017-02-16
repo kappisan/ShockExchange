@@ -1,0 +1,455 @@
+@font-face {
+    font-family: coolvetica;
+    src: url(./coolvetica.ttf);
+}
+
+@font-face {
+    font-family: typewriter;
+    src: url(./OldNewspaperTypes.ttf);
+}
+
+@font-face {
+    font-family: shock;
+    src: url(./ridethelightning.ttf);
+}
+
+body {
+  background-color: #1a181d;
+}
+
+svg {
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: coolvetica;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+/* color scheme */
+/*
+#41b6ab - turquoise
+#f05442 - tangerine tango
+#169c78 - emerald
+#da4f70 - honeysuckle
+*/
+
+.turquoise,
+.turquoiseHover:hover {
+  color: #41b6ab;
+}
+.tangerine,
+.tangerineHover:hover {
+  color: #f05442;
+}
+.emerald,
+.emeraldHover:hover {
+  color: #169c78;
+}
+.honeysuckle,
+.honeysuckleHover:hover {
+  color: #da4f70;
+}
+
+.turquoiseBG {
+  background-color: #41b6ab;
+}
+.tangerineBG {
+  background-color: #f05442;
+}
+.emeraldBG {
+  background-color: #169c78;
+}
+.honeysuckleBG {
+  background-color: #da4f70;
+}
+
+.greyHover:hover {
+  color: #999;
+}
+
+.link-menu {
+  width: 500px;
+  margin: auto;
+}
+
+
+.cool {
+  font-family: coolvetica !important;
+}
+
+.typewriter {
+  font-family: typewriter !important;
+}
+
+.shock {
+	font-family: shock !important;
+}
+
+a {
+  text-decoration: none;
+  
+}
+
+.title-banner a {
+  color: #fff;
+}
+
+li {
+  font-family: coolvetica;
+}
+
+.lime-green {
+  color: #41b6ab;
+}
+
+.code-pre {
+    width: 800px;
+    position: relative;
+    margin: auto;
+}
+
+.nav-menu-item {
+  margin: 2px 20px 2px 20px;
+}
+
+.map-legend-text {
+  fill: #222;
+}
+
+.title-banner {
+    height: 54px;
+    padding: 6px 50px 5px 50px;
+    font-family: coolvetica;
+    font-weight: 700;
+    font-size: 36px;
+    z-index: 4;
+    letter-spacing: 1.5px;
+    position: fixed;
+    background-color: #222;
+    width: 100%;
+}
+
+.blog-date {
+    color: #222222;
+    font-family: coolvetica;
+    margin: 2px 40px 2px 40px;
+    font-size: 20pt;
+    position: relative;
+    top: -82px;
+}
+
+.image-credit {
+  font-size: 16px;
+  text-align: left;
+}
+
+@keyframes pulse {
+  0% {color: #c3ddd6;}
+  50% {color: #f4b794;}
+  100% {color: #f6cac9;}
+}
+
+@keyframes pulseBG {
+  0% {background: #8c0000; box-shadow: 0 0 60px 2px #8c0000;}
+  25% {background: #13523d; box-shadow: 0 0 60px 2px #13523d;}
+  50% {background: #ad637c; box-shadow: 0 0 60px 2px #ad637c;}
+  75% {background: #30333c; box-shadow: 0 0 60px 2px #30333c;}
+  100% {background: #470d42; box-shadow: 0 0 60px 2px #470d42;}
+}
+
+@keyframes pulseBoxShadow {
+  0% {box-shadow: 0 0 60px #8c0000, inset 0 0 60px #8c0000;}
+  25% {box-shadow: 0 0 60px #13523d, inset 0 0 60px #13523d;}
+  50% {box-shadow: 0 0 60px #ad637c, inset 0 0 60px #ad637c;}
+  75% {box-shadow: 0 0 60px #30333c, inset 0 0 60px #30333c;}
+  100% {box-shadow: 0 0 60px #470d42, inset 0 0 60px #470d42;}
+}
+
+/* d3 hover map info box */
+.infobox-text {
+  fill: #FFF;
+  font-size: 26px;
+}
+
+.infobox-lang-text {
+  fill: #FFF;
+  font-size: 18px;
+  font-family: helvetica;
+
+}
+
+
+/* box-shadow: 0 0 60px crimson, inset 0 0 60px crimson; */
+
+.selfie-photo {
+    position: relative;
+    width: 270px;
+    word-wrap: normal;
+    left: 20px;
+    display: inline-block;
+}
+
+.right-text {
+    display: inline-block;
+    position: relative;
+    top: -340px;
+}
+
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.2); }
+
+
+.grow-logo { transition: all .2s ease-in-out; }
+.grow-logo:hover { transform: scale(1.05); }
+
+
+
+
+
+
+
+
+/* D3 BAR CHART */
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #f2c800;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis path {
+  display: none;
+}
+
+
+.work-title {
+    font-family: coolvetica;
+    font-size: 44px;
+    position: relative;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px 0 40px 0;
+}
+
+
+
+
+html {
+    color: #fff;
+}
+
+line-svg {
+    color: #f2c800;
+}
+
+.axis--x path {
+  display: none;
+
+}
+/*
+    .axis {
+        stroke: #fff;
+        fill: #fff;
+    }
+*/
+.line {
+  fill: none;
+  stroke: #f2c800;
+  stroke-width: 1.5px;
+}
+
+.page-heading {
+    font-size: 32pt;
+    color: #f2c800;
+    margin-top: 12px;
+    font-family: coolvetica;
+}
+
+.wrapper {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  background-color: #000;
+}
+
+.user-info {
+    float: right;
+    margin-right: 10px;
+    width: 170px;
+    color: #fff;
+    position: fixed;
+    top: 14px;
+    right: 40px;
+}
+
+.transactionForm {
+    height: 400px;
+}
+
+.sellForm {
+    height: 420px;
+}
+
+
+.transactionForm,
+.sellForm {
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 999999999999999999;
+    top: 10px;
+    bottom: 0;
+    background-color: #1b1b1b;
+    width: 600px;
+}
+
+
+
+.transactionForm h1,
+.sellForm h1 {
+    color: #f2c800;
+}
+
+.td-ticker {
+    color: #f2c800;
+    font-family: coolvetica;
+}
+
+.buy-button {
+    background-color: #f2c800;
+    border-color: #f2c800;
+    border-radius: 2px;
+    height: 28px;
+    width: 100px;
+    font-family: coolvetica;
+}
+.buy-button:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+th {
+    font-family: coolvetica;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 35px 25px;
+    text-align: left;
+}
+
+td {
+    text-align:  left;
+    padding: 1px 25px;
+}
+
+.sans {
+    font-family: sans-serif;
+}
+
+.yellow {
+  color: #f2c800;
+}
+
+.grey-out-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.92);
+    top: 0;
+    z-index: 9999999;
+}
+
+.market-tr:hover {
+    cursor: pointer;
+    background-color: #000;
+}
+
+.transaction-input {
+    width: 234px;
+    height: 24px;
+    float: right;
+    right: 130px;
+    position: relative;
+}
+
+.transaction-button {
+    width: 168px;
+    height: 32px;
+    font-family: coolvetica;
+    font-size: 18px;
+}
+
+.login-button,
+.cancel-button {
+    width: 121px;
+    height: 32px;
+    font-size: 16px;
+    font-family: coolvetica
+}
+
+
+.user-balance {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #fff;
+}
+
+.user-balance:hover {
+  color: #f2c800;
+  cursor: pointer;
+}
+
+.user-username:hover {
+  color: #f2c800;
+  cursor: pointer;
+}
+
+.pie-segment  {
+  text-anchor: middle;
+  stroke: #fff;
+  font-family: sans-serif;
+  fill: #fff;
+  font-size: 25px;
+}
+
+.insufficient-funds {
+  height: 24px;
+}
+
+.insufficient-funds p {
+  color: #a00;
+  font-size: 18px;
+  font-family: coolvetica;
+}
+
+.user-balance-amount {
+  float: right;
+}
+
+
+
+

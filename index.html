@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<link href='./style/style.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href='./style/hamburger.css' rel='stylesheet' type='text/css'>
+
+    <link rel='shortcut icon' href='img/logo5.png'>
+
+    <!-- facebook meta data -->
+    <meta property="og:title" content="kappisan" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.kappisan.com" />
+    <meta property="og:image" content="http://www.kappisan.com/img/logo_rectangle.png" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+    <script src="./libs/numeral.min.js"></script>
+    <script src="./libs/moment.js"></script>
+    <script src="./libs/angular-route.min.js"></script>
+
+    <script src="./libs/d3.v3.min.js"></script>
+    
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <title>Stock Simulator</title>
+
+</head>
+<body ng-app="stockApp" ng-controller="loginCtrl">
+
+<div ng-controller="mainCtrl">
+
+    <div class="wrapper">
+
+        <center>
+
+          <h1 class="page-heading">{{ currentPage }}</h1>
+        </center>
+
+        <input type="checkbox" id="navigation" />
+        <label for="navigation">
+
+        <!-- Hamburger -->
+        <div id="nav-icon3">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        </label>
+        <nav>
+            <ul>
+                <li><a href="#/" ng-click="goToHomePage()"><p>Home</p></a></li>
+                <li ng-if="loggedIn"><a href="#/holdings" ng-click="goToHoldingsPage()"><p>Holdings</p></a></li>
+                <li><a href="#/market" ng-click="goToMarketPage()"><p>Market</p></a></li>
+                <li ng-if="loggedIn"><a ng-href="#/profile?username={{user.username}}" ng-click="goToProfilePage()"><p>Profile</p></a></li>
+                <li ng-if="loggedIn"><a href="#/statements" ng-click="goToStatementsPage()"><p>Statements</p></a></li>
+                <li><a href="#/shockcoin" ng-click="goToShockCoinPage()"><p>ShockCoin</p></a></li>
+                <li>
+                    <a href="#/login" ng-click="logout()">
+                        <p ng-if="loggedIn">Log Out</p>
+                        <p ng-if="!loggedIn">Log In</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="user-info sans" ng-if="loggedIn">
+            <span class="cool user-username" ng-click="goToProfilePage()">{{ user.username }}</span><br>
+
+            Cash: <span class="user-balance-amount">${{ twoDecimalPlaces(user.cash) }}</span><br>
+            
+            <a href="#/holdings" ng-click="goToHoldingsPage()" class="user-balance">Portfolio: <span class="user-balance-amount">${{ twoDecimalPlaces(user.balance) }}</span></a>
+        </div>
+            
+    </div>
+
+    <div ng-if="showTransactionForm" ng-include="'./templates/components/transactionForm.html'"></div>
+    <div ng-if="showSellForm" ng-include="'./templates/components/sellForm.html'"></div>
+
+    <div id="container" ng-view></div>
+
+</div>
+
+<script>
+
+    $(document).ready(function(){
+      $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+        $(this).toggleClass('open');
+      });
+    });
+
+</script>
+
+<script src="./main.js"></script>
+<script src="./js/stockCtrl.js"></script>
+<script src="./js/holdingsCtrl.js"></script>
+<script src="./js/statementsCtrl.js"></script>
+<script src="./js/loginCtrl.js"></script>
+<script src="./js/profileCtrl.js"></script>
+<script src="./js/marketCtrl.js"></script>
+
+</body>
+</html>

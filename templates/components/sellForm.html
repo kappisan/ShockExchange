@@ -1,0 +1,37 @@
+<div class="grey-out-bg">
+    <div class="sellForm cool">
+        <center>
+            <h2 ng-if="!transactionExecuted">SELL SHARES</h2>
+            <h2 ng-if="transactionExecuted">Success</h2>
+            <div>
+                <h1>{{ selectedStock.name }}</h1>
+            </div>
+
+            <div ng-if="!transactionExecuted">
+
+                <div class="insufficient-funds">
+                    <p ng-if="transaction.volume > selectedStock.quantity">Insufficient Shares</[h1]>
+                </div>
+
+                <h2 class="sans">Price: ${{ stockPrice }} <br> Available: {{ selectedStock.quantity }}</h2>
+
+                Amount <input type="number" ng-model="transaction.volume" class="transaction-input"><br>
+
+               <h2 class="sans">Cash: ${{ stockPrice * transaction.volume }}</h2>
+
+                <br>
+                <button ng-click="confirmSellStock(selectedStock, transaction)" class="transaction-button">Sell</button>
+                <button ng-click="cancelSellStock()" class="transaction-button">Cancel</button><br>
+
+            </div>
+
+            <div ng-if="transactionExecuted">
+
+                <h3 class="sans">Sold {{ transaction.volume }} for ${{ transaction.sold * transaction.volume }}</h3>
+
+                <button ng-click="cancelSellStock()" class="transaction-button">Ok</button>
+            </div>
+
+        </center>
+    </div>
+</div>

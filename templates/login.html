@@ -1,0 +1,21 @@
+<style>
+
+</style>
+
+<center style="padding-top:160px;">
+
+<span class="sans">username</span> 
+<input type="text" ng-model="loginDetails.username"><br><br>
+
+<span class="sans">password</span> 
+<input type="password" ng-model="loginDetails.password"><br><br>
+
+
+<button class="login-button" ng-click="loginWithPass()">Login</button>
+<button class="cancel-button">Cancel</button>
+
+<div ng-if="loginError" style="color: #a00;">
+	<h1 class="cool">Error: {{ loginErrorMessage }}</h1>
+</div>
+
+</center>

@@ -1,0 +1,146 @@
+<style>
+	.stock-name {
+		font-size: 32px;
+	}
+
+	.stock-price {
+		font-size: 72px;
+	    width: 300px;
+	    float: left;
+	    margin: 0;
+	}
+
+	.stock-info-box {
+	    width: 680px;
+	    margin: 20px;
+	}
+	.line-svg svg {
+		    margin: 50px 0 0 0;
+	}
+
+	.info-table th {
+		padding: 0 !important;
+	    font-size: 16px;
+
+	}
+
+	.staff-profile {
+		width: 600px;
+		height: 100px;
+	}
+
+	.staff-profile:hover {
+		background-color: black;
+		cursor: pointer;
+	}
+
+	.staff-photo {
+		width: 50px;
+	    display: inline-block;
+	    position: relative;
+	    top: 18px;
+	}
+
+	.staff-name {
+		width: 400px;
+	    display: inline-block;
+	    text-align: left;
+	    margin-left: 20px;
+	}
+	
+	.tick text {
+	    stroke: #f2c800;
+	    stroke-width: 0.7px;
+	    font-size: 12px;
+	    font-family: sans-serif;
+	}
+
+.company-bio {
+	width: 600px;
+	text-align: justify;
+}
+
+.company-heading {
+	padding: 20px;
+}
+
+</style>
+
+<center style="padding-top:90px;">
+
+<div class="stock-info-box">
+	<h2 class="stock-price">{{ stockPrice }}</h2>
+
+	<table class="info-table">
+		<tr>
+			<th>Shares</th>
+			<td>{{ company.sharesIssued }}</td>
+
+			<th>Div / Yield</th>
+			<td>17.32</td>
+		</tr>
+		<tr>
+			<th>Volume</th>
+			<td>500</td>
+
+			<th>Market Cap</th>
+			<td>{{ company.marketCap }}</td>
+		</tr>
+		<tr>
+			<th>P/E</th>
+			<td>11.3</td>
+
+			<th>Vol / Avg</th>
+			<td>3000</td>
+		</tr>
+	</table>
+
+</div>
+
+<div class="line-svg">
+	<h1>Loading...</h1>
+</div>
+
+
+<h1 class="cool company-heading">Company Profile</h1>
+
+<div class="company-bio sans">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<h1 class="cool company-heading">Officers and Directors</h1>
+
+<div>
+	<div class="staff-profile" 
+		ng-click="goToProfilePage(company.president.username, company.president.name)">
+		<img class="staff-photo" ng-src="{{ company.president.image }}">
+		<h4 class="sans staff-name">President - CEO - {{ company.president.name }}</h4>
+	</div>
+
+	<div ng-show="company.vicePresident" 
+		class="staff-profile" 
+		ng-click="goToProfilePage(company.vicePresident.username, company.vicePresident.name)">
+		<img class="staff-photo" ng-src="{{ company.vicePresident.image }}">
+		<h4 class="sans staff-name">Vice President - Director - {{ company.vicePresident.name }}</h4>
+	</div>
+</div>
+
+<!--
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Price</th>
+    </tr>
+    <tr ng-repeat="valuation in valuations">
+        <td>{{ valuation.date }}</td>
+        <td>{{ valuation.time }}</td>
+        <td>{{ valuation.close }}</td>
+    </tr>
+
+</table>
+
+-->
+
+</center>
